@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تقرير أداء أمنية | Ommniah Performance Report</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            900: '#020617',
+                            800: '#0f172a',
+                            700: '#1e293b',
+                        },
+                        brand: {
+                            blue: '#38bdf8',
+                            gold: '#f59e0b',
+                            indigo: '#818cf8',
+                            emerald: '#10b981',
+                            rose: '#f43f5e'
+                        }
+                    },
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { 
+            font-family: 'Cairo', sans-serif; 
+            background-color: #020617; 
+            color: #e2e8f0; 
+            scroll-behavior: smooth;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(56, 189, 248, 0.08) 0%, transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(129, 140, 248, 0.08) 0%, transparent 25%);
+            overflow-x: hidden;
+        }
+        .glass-card { 
+            background: rgba(15, 23, 42, 0.4); 
+            backdrop-filter: blur(20px); 
+            border: 1px solid rgba(255, 255, 255, 0.05); 
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(56, 189, 248, 0.3);
+            box-shadow: 0 20px 40px -10px rgba(56, 189, 248, 0.15);
+        }
+        .gradient-text { 
+            background: linear-gradient(135deg, #38bdf8 0%, #a5b4fc 100%); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+        }
+        .section-title { 
+            position: relative; 
+            display: inline-block; 
+            margin-bottom: 3.5rem;
+            font-size: 2.25rem;
+            font-weight: 800;
+        }
+        .section-title::after { 
+            content: ''; 
+            position: absolute; 
+            bottom: -1rem; 
+            right: 0; 
+            width: 60px; 
+            height: 4px; 
+            background: linear-gradient(270deg, #38bdf8, transparent); 
+            border-radius: 2px;
+        }
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .reveal-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="relative min-h-[80vh] flex flex-col justify-center items-center text-center px-6 overflow-hidden">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-brand-blue/5 blur-[120px] rounded-full -z-10 animate-pulse-slow"></div>
+        
+        <div class="space-y-6 max-w-4xl relative z-10">
+            <h1 class="text-6xl md:text-8xl font-black text-white tracking-tighter mb-2">OMMNIAH</h1>
+            <p class="text-2xl md:text-3xl font-bold text-brand-blue">
+                تقرير الأداء الرقمي وتحليل النمو
+            </p>
+            <div class="flex items-center justify-center gap-4 mt-4">
+                <div class="h-[1px] w-12 bg-gradient-to-r from-brand-blue to-transparent"></div>
+                <p class="text-slate-400 font-medium text-sm md:text-base tracking-wide">الخطة الاستراتيجية لتحسين مبيعات المتجر</p>
+                <div class="h-[1px] w-12 bg-gradient-to-l from-brand-blue to-transparent"></div>
+            </div>
+            <div class="pt-10">
+                <a href="http://ommniah.com/" target="_blank" class="text-slate-500 hover:text-brand-blue transition-colors text-sm font-bold tracking-widest">OMMNIAH.COM</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 max-w-6xl space-y-40 pb-48">
+
+        <!-- 1. Key Performance Indicators -->
+        <section class="reveal-on-scroll">
+            <div class="flex flex-col md:flex-row justify-between items-end gap-6 mb-16">
+                <div>
+                    <span class="text-brand-blue font-bold tracking-wider text-sm block mb-2 uppercase">Current Metrics</span>
+                    <h2 class="section-title !mb-0 text-white">تحليل مؤشرات الأداء الحالية</h2>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Impressions -->
+                <div class="glass-card rounded-[2.5rem] p-10 text-center">
+                    <div class="w-16 h-16 mx-auto rounded-2xl bg-brand-blue/10 flex items-center justify-center text-3xl mb-6 text-brand-blue">👁️</div>
+                    <div class="text-5xl font-black text-white mb-2">154,947</div>
+                    <p class="text-slate-400 text-sm font-bold uppercase tracking-widest">Impressions</p>
+                </div>
+                <!-- Clicks -->
+                <div class="glass-card rounded-[2.5rem] p-10 text-center border-brand-blue/20">
+                    <div class="w-16 h-16 mx-auto rounded-2xl bg-brand-indigo/10 flex items-center justify-center text-3xl mb-6 text-brand-indigo">🖱️</div>
+                    <div class="text-5xl font-black text-brand-blue mb-2">825</div>
+                    <p class="text-slate-400 text-sm font-bold uppercase tracking-widest">Total Clicks</p>
+                </div>
+                <!-- Spend -->
+                <div class="glass-card rounded-[2.5rem] p-10 text-center">
+                    <div class="w-16 h-16 mx-auto rounded-2xl bg-brand-gold/10 flex items-center justify-center text-3xl mb-6 text-brand-gold">💰</div>
+                    <div class="text-5xl font-black text-white mb-2">958.13</div>
+                    <p class="text-slate-400 text-sm font-bold uppercase tracking-widest">Total Spend (SAR)</p>
+                </div>
+            </div>
+
+            <!-- Secondary Metrics -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
+                <div class="bg-navy-800/50 p-6 rounded-2xl border border-white/5 text-center">
+                    <p class="text-[10px] text-slate-500 uppercase mb-1">متوسط سعر النقرة CPC</p>
+                    <span class="text-xl font-bold text-white">1.16 ر.س</span>
+                </div>
+                <div class="bg-navy-800/50 p-6 rounded-2xl border border-white/5 text-center">
+                    <p class="text-[10px] text-slate-500 uppercase mb-1">تكلفة 1000 ظهور CPM</p>
+                    <span class="text-xl font-bold text-white">6.18 ر.س</span>
+                </div>
+                <div class="lg:col-span-2 bg-brand-rose/5 p-6 rounded-2xl border border-brand-rose/20 flex items-center justify-around">
+                    <div class="text-center">
+                        <p class="text-[10px] text-brand-rose font-bold uppercase mb-1">Add To Cart (ATC)</p>
+                        <span class="text-3xl font-black text-brand-rose">4 عمليات إضافة</span>
+                    </div>
+                    <span class="text-3xl opacity-50">🛒</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. The Strategy -->
+        <section class="reveal-on-scroll">
+            <div class="glass-card rounded-[3rem] p-0 overflow-hidden border-0">
+                <div class="bg-gradient-to-r from-brand-indigo/20 to-navy-900 p-8 md:p-12 border-b border-white/5">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-3xl font-black text-white italic">الاستراتيجية القادمة: <span class="text-brand-blue">حملات المبيعات التحويلية</span></h3>
+                        <span class="text-3xl">🚀</span>
+                    </div>
+                    <p class="text-slate-400 mt-4 leading-relaxed">بناءً على التفاعل الحالي، سننتقل من مرحلة الوعي إلى مرحلة تحويل الجمهور إلى عملاء فعليين.</p>
+                </div>
+                
+                <div class="p-8 md:p-12">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-12">
+                        <div class="space-y-12">
+                            <!-- Step 1 -->
+                            <div class="flex gap-6">
+                                <div class="w-14 h-14 rounded-2xl bg-brand-blue/10 flex items-center justify-center shrink-0 border border-brand-blue/20">
+                                    <span class="text-brand-blue text-xl font-black">01</span>
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-bold text-white mb-3 italic">هيكلة حملات المبيعات</h4>
+                                    <ul class="text-slate-400 space-y-3 text-sm leading-relaxed">
+                                        <li class="flex gap-2"><span>•</span> تقسيم الإعلانات لمجموعات دقيقة (Ad Groups).</li>
+                                        <li class="flex gap-2"><span>•</span> كل مجموعة إعلانية تحتوي على <span class="text-brand-blue font-bold">2 فيديو احترافي</span> لاختبار الجذب.</li>
+                                        <li class="flex gap-2"><span>•</span> التركيز على عرض جودة الخامات وتصاميم أمنية المميزة.</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Step 2 -->
+                            <div class="flex gap-6">
+                                <div class="w-14 h-14 rounded-2xl bg-brand-gold/10 flex items-center justify-center shrink-0 border border-brand-gold/20">
+                                    <span class="text-brand-gold text-xl font-black">02</span>
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-bold text-white mb-3 italic">إدارة الميزانية اليومية</h4>
+                                    <p class="text-slate-400 text-sm leading-relaxed mb-4">لتحقيق أقصى استفادة من الخوارزميات، سيتم تخصيص:</p>
+                                    <div class="inline-flex items-center gap-6 bg-navy-900 px-8 py-5 rounded-3xl border border-brand-blue/30 shadow-2xl">
+                                        <span class="text-4xl font-black text-white">80 ر.س</span>
+                                        <span class="text-xs text-brand-blue font-bold uppercase tracking-widest leading-none">يومياً لكل<br>مجموعة إعلانية</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Goals/Preview -->
+                        <div class="relative">
+                            <div class="absolute inset-0 bg-brand-blue/5 blur-3xl rounded-full"></div>
+                            <div class="relative bg-navy-900/60 rounded-[2.5rem] p-10 border border-white/5 h-full flex flex-col justify-center">
+                                <h4 class="text-[10px] font-bold text-slate-500 uppercase tracking-[0.3em] mb-10 text-center">Campaign Focus</h4>
+                                <div class="space-y-8">
+                                    <div class="flex items-center justify-between group">
+                                        <span class="text-sm text-slate-400 group-hover:text-white transition-colors">معدل التحويل (Sales)</span>
+                                        <span class="text-brand-emerald font-bold">Target: High</span>
+                                    </div>
+                                    <div class="w-full bg-white/5 h-1 rounded-full overflow-hidden">
+                                        <div class="bg-brand-emerald w-3/4 h-full"></div>
+                                    </div>
+                                    <div class="flex items-center justify-between group">
+                                        <span class="text-sm text-slate-400 group-hover:text-white transition-colors">تكرار عملية الشراء</span>
+                                        <span class="text-brand-indigo font-bold">Retention Focus</span>
+                                    </div>
+                                    <div class="w-full bg-white/5 h-1 rounded-full overflow-hidden">
+                                        <div class="bg-brand-indigo w-1/2 h-full"></div>
+                                    </div>
+                                </div>
+                                <p class="mt-12 text-[10px] text-slate-600 text-center leading-relaxed">
+                                    سيتم استخدام تقنيات الـ Retargeting لإعادة استهداف الـ 4 عملاء الذين أضافوا للسلة ولم يكملوا الدفع.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- NEW: Video Montages Preview -->
+                    <div class="border-t border-white/5 pt-12">
+                        <div class="flex items-center gap-4 mb-8">
+                            <span class="text-2xl">🎬</span>
+                            <h4 class="text-xl font-bold text-white">نماذج الفيديوهات الإعلانية (Campaign Montages)</h4>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <!-- Video 1 -->
+                            <div class="bg-navy-900/50 p-4 rounded-3xl border border-white/5 group hover:border-brand-blue/30 transition-colors">
+                                <div class="relative rounded-2xl overflow-hidden aspect-[9/16] bg-black/50">
+                                    <video controls playsinline class="w-full h-full object-cover">
+                                        <source src="IMG_6629.MOV" type="video/quicktime">
+                                        <source src="IMG_6629.MOV" type="video/mp4">
+                                    </video>
+                                </div>
+                                <p class="text-center text-xs text-brand-blue font-bold mt-4 uppercase tracking-widest">Montage 01</p>
+                            </div>
+                            <!-- Video 2 -->
+                            <div class="bg-navy-900/50 p-4 rounded-3xl border border-white/5 group hover:border-brand-gold/30 transition-colors">
+                                <div class="relative rounded-2xl overflow-hidden aspect-[9/16] bg-black/50">
+                                    <video controls playsinline class="w-full h-full object-cover">
+                                        <source src="IMG_6740.MOV" type="video/quicktime">
+                                        <source src="IMG_6740.MOV" type="video/mp4">
+                                    </video>
+                                </div>
+                                <p class="text-center text-xs text-brand-gold font-bold mt-4 uppercase tracking-widest">Montage 02</p>
+                            </div>
+                            <!-- Video 3 -->
+                            <div class="bg-navy-900/50 p-4 rounded-3xl border border-white/5 group hover:border-brand-rose/30 transition-colors">
+                                <div class="relative rounded-2xl overflow-hidden aspect-[9/16] bg-black/50">
+                                    <video controls playsinline class="w-full h-full object-cover">
+                                        <source src="IMG_6741.MOV" type="video/quicktime">
+                                        <source src="IMG_6741.MOV" type="video/mp4">
+                                    </video>
+                                </div>
+                                <p class="text-center text-xs text-brand-rose font-bold mt-4 uppercase tracking-widest">Montage 03</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Social Media & Content Plan -->
+        <section class="reveal-on-scroll">
+            <div class="mb-12">
+                <span class="text-brand-gold font-bold tracking-wider text-sm block mb-2 uppercase">Content Strategy</span>
+                <h2 class="section-title !mb-0 text-white">خطة المحتوى والسوشيال ميديا</h2>
+                <p class="text-slate-400 mt-8 max-w-2xl">التركيز على رسالة "الاستثمار الذكي": شراء ملابس الصيف بجودة عالية الآن بأسعار تصفية الشتاء.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Post 1 -->
+                <div class="glass-card p-8 rounded-[2rem] hover:border-brand-gold/50 group relative overflow-hidden">
+                    <div class="absolute -right-10 -top-10 w-32 h-32 bg-brand-gold/10 rounded-full blur-2xl group-hover:bg-brand-gold/20 transition-all"></div>
+                    <div class="relative z-10">
+                        <span class="text-xs font-bold text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full mb-4 inline-block">لقطة الشتاء</span>
+                        <h3 class="text-lg font-bold text-white mb-3">لا تنتظرين الأسعار تولع!</h3>
+                        <p class="text-sm text-slate-400 leading-relaxed mb-6">
+                            القطن الصيفي المريح بخصم 71%. فرصة ما تتعوض عشان تجهزين لصيف السنة الجاية أو تاخذينه معاك لوجهة دافية.
+                        </p>
+                        <div class="flex items-center justify-between border-t border-white/5 pt-4">
+                            <span class="text-brand-gold font-black text-xl">71% OFF</span>
+                            <span class="text-[10px] text-slate-500 uppercase tracking-widest">Inspiration</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Post 2 -->
+                <div class="glass-card p-8 rounded-[2rem] hover:border-brand-blue/50 group relative overflow-hidden">
+                    <div class="absolute -right-10 -top-10 w-32 h-32 bg-brand-blue/10 rounded-full blur-2xl group-hover:bg-brand-blue/20 transition-all"></div>
+                    <div class="relative z-10">
+                        <span class="text-xs font-bold text-brand-blue bg-brand-blue/10 px-3 py-1 rounded-full mb-4 inline-block">السفر والوجهات الدافية</span>
+                        <h3 class="text-lg font-bold text-white mb-3">الشتاء ما يمنع السفر</h3>
+                        <p class="text-sm text-slate-400 leading-relaxed mb-6">
+                            جمبسوت "كنوز البحر الأحمر" الصيفي جاهز معاك. خامة كريب ناعمة وتصميم عصري. استغلي الخصم عشان تكشخين بأقل سعر.
+                        </p>
+                        <div class="flex items-center justify-between border-t border-white/5 pt-4">
+                            <span class="text-brand-blue font-black text-xl">50% OFF</span>
+                            <span class="text-[10px] text-slate-500 uppercase tracking-widest">Travel</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Post 3 -->
+                <div class="glass-card p-8 rounded-[2rem] hover:border-brand-indigo/50 group relative overflow-hidden">
+                    <div class="absolute -right-10 -top-10 w-32 h-32 bg-brand-indigo/10 rounded-full blur-2xl group-hover:bg-brand-indigo/20 transition-all"></div>
+                    <div class="relative z-10">
+                        <span class="text-xs font-bold text-brand-indigo bg-brand-indigo/10 px-3 py-1 rounded-full mb-4 inline-block">إحساس الصيف</span>
+                        <h3 class="text-lg font-bold text-white mb-3">قطعة تلبسينها طول السنة</h3>
+                        <p class="text-sm text-slate-400 leading-relaxed mb-6">
+                            بنطلوننا الهاي ويست المطرز هو الجواب. لقطة شتوية بخصم 50% عشان تجهزين كشختك الصيفية بدري.
+                        </p>
+                        <div class="flex items-center justify-between border-t border-white/5 pt-4">
+                            <span class="text-brand-indigo font-black text-xl">50% OFF</span>
+                            <span class="text-[10px] text-slate-500 uppercase tracking-widest">Versatile</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Post 4 -->
+                <div class="glass-card p-8 rounded-[2rem] hover:border-brand-rose/50 group relative overflow-hidden">
+                    <div class="relative z-10">
+                        <span class="text-xs font-bold text-brand-rose bg-brand-rose/10 px-3 py-1 rounded-full mb-4 inline-block">فخامة نادرة</span>
+                        <h3 class="text-lg font-bold text-white mb-3">قطعة بتندمين عليها</h3>
+                        <p class="text-sm text-slate-400 leading-relaxed mb-6">
+                            مو كل يوم تلاقين قطعة حرير طبيعي فخمة بخصم 55%. هذي قطعة فنية ما راح تتكرر.
+                        </p>
+                        <div class="flex items-center justify-between border-t border-white/5 pt-4">
+                            <span class="text-brand-rose font-black text-xl">55% OFF</span>
+                            <span class="text-[10px] text-slate-500 uppercase tracking-widest">Silk</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Post 5 -->
+                <div class="glass-card p-8 rounded-[2rem] hover:border-brand-emerald/50 group relative overflow-hidden">
+                    <div class="relative z-10">
+                        <span class="text-xs font-bold text-brand-emerald bg-brand-emerald/10 px-3 py-1 rounded-full mb-4 inline-block">توفير ذكي</span>
+                        <h3 class="text-lg font-bold text-white mb-3">وفري ميزانية 2026</h3>
+                        <p class="text-sm text-slate-400 leading-relaxed mb-6">
+                            تبغين توفرين أكثر من نص قيمة ملابس صيفك الجاي؟ هذا مو شراء، هذا استثمار يخلي ميزانيتك مرتاحة.
+                        </p>
+                        <div class="flex items-center justify-between border-t border-white/5 pt-4">
+                            <span class="text-brand-emerald font-black text-xl">INVEST</span>
+                            <span class="text-[10px] text-slate-500 uppercase tracking-widest">Budget</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Post 6 -->
+                <div class="glass-card p-8 rounded-[2rem] hover:border-white/30 group relative overflow-hidden">
+                    <div class="relative z-10">
+                        <span class="text-xs font-bold text-white bg-white/10 px-3 py-1 rounded-full mb-4 inline-block">المناسبات</span>
+                        <h3 class="text-lg font-bold text-white mb-3">فخامة بسعر معقول</h3>
+                        <p class="text-sm text-slate-400 leading-relaxed mb-6">
+                            فستان السهرة الصيفي هذا بخصم 60% هو فرصتك الذهبية. خليه جاهز لمناسباتك الجاية (أعياد، زواجات).
+                        </p>
+                        <div class="flex items-center justify-between border-t border-white/5 pt-4">
+                            <span class="text-white font-black text-xl">60% OFF</span>
+                            <span class="text-[10px] text-slate-500 uppercase tracking-widest">Events</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Post 7 -->
+                <div class="glass-card p-8 rounded-[2rem] hover:border-brand-blue/50 group relative overflow-hidden">
+                    <div class="relative z-10">
+                        <span class="text-xs font-bold text-brand-blue bg-brand-blue/10 px-3 py-1 rounded-full mb-4 inline-block">عملي وأنيق</span>
+                        <h3 class="text-lg font-bold text-white mb-3">قطعة وحدة.. 3 إطلالات</h3>
+                        <p class="text-sm text-slate-400 leading-relaxed mb-6">
+                            الجمبسوت الصيفي هذا هو الحل. تلبسينه لحاله في الصيف، أو مع جاكيت جينز في الربيع.
+                        </p>
+                        <div class="flex items-center justify-between border-t border-white/5 pt-4">
+                            <span class="text-brand-blue font-black text-xl">60% OFF</span>
+                            <span class="text-[10px] text-slate-500 uppercase tracking-widest">Style</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Post 8 -->
+                <div class="glass-card p-8 rounded-[2rem] hover:border-brand-gold/50 group relative overflow-hidden">
+                    <div class="relative z-10">
+                        <span class="text-xs font-bold text-brand-gold bg-brand-gold/10 px-3 py-1 rounded-full mb-4 inline-block">ذكاء التسوق</span>
+                        <h3 class="text-lg font-bold text-white mb-3">المتسوق الذكي</h3>
+                        <p class="text-sm text-slate-400 leading-relaxed mb-6">
+                            تصفية أمنية الصيفية هي فرصتك لامتلاك قطع فاخرة بخصومات توصل لـ 71%. اثبتي إنك متسوقة ذكية!
+                        </p>
+                        <div class="flex items-center justify-between border-t border-white/5 pt-4">
+                            <span class="text-brand-gold font-black text-xl">71% OFF</span>
+                            <span class="text-[10px] text-slate-500 uppercase tracking-widest">Smart</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Post 9 -->
+                <div class="glass-card p-8 rounded-[2rem] hover:border-brand-indigo/50 group relative overflow-hidden">
+                    <div class="relative z-10">
+                        <span class="text-xs font-bold text-brand-indigo bg-brand-indigo/10 px-3 py-1 rounded-full mb-4 inline-block">الجودة</span>
+                        <h3 class="text-lg font-bold text-white mb-3">الخامة اللي تدوم</h3>
+                        <p class="text-sm text-slate-400 leading-relaxed mb-6">
+                            فساتين أمنية الصيفية مصنوعة من خامات طبيعية (كتان / قطن) مصممة لتدوم. استثمري في الجودة الحين.
+                        </p>
+                        <div class="flex items-center justify-between border-t border-white/5 pt-4">
+                            <span class="text-brand-indigo font-black text-xl">QUALITY</span>
+                            <span class="text-[10px] text-slate-500 uppercase tracking-widest">Material</span>
+                        </div>
+                    </div>
+                </div>
+
+                 <!-- Post 10: Family -->
+                 <div class="glass-card p-8 rounded-[2rem] hover:border-brand-rose/50 group relative overflow-hidden">
+                    <div class="relative z-10">
+                        <span class="text-xs font-bold text-brand-rose bg-brand-rose/10 px-3 py-1 rounded-full mb-4 inline-block">العائلة</span>
+                        <h3 class="text-lg font-bold text-white mb-3">الراحة والأناقة العائلية</h3>
+                        <p class="text-sm text-slate-400 leading-relaxed mb-6">
+                            أطقمنا القطنية الصيفية مصممة للراحة والأناقة. مثالية لطلعات الويكند أو السفر.
+                        </p>
+                        <div class="flex items-center justify-between border-t border-white/5 pt-4">
+                            <span class="text-brand-rose font-black text-xl">FAMILY</span>
+                            <span class="text-[10px] text-slate-500 uppercase tracking-widest">Matching</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Post 11: Mommy & Me -->
+                <div class="glass-card p-8 rounded-[2rem] hover:border-white/30 group relative overflow-hidden">
+                    <div class="relative z-10">
+                        <span class="text-xs font-bold text-white bg-white/10 px-3 py-1 rounded-full mb-4 inline-block">أمي وأنا</span>
+                        <h3 class="text-lg font-bold text-white mb-3">كشختنا المتطابقة</h3>
+                        <p class="text-sm text-slate-400 leading-relaxed mb-6">
+                            طقم صيفي كلاسيكي بخصم 50% قطعة فاخرة تعبر عن الترابط بينك وبين أميرتك الصغيرة.
+                        </p>
+                        <div class="flex items-center justify-between border-t border-white/5 pt-4">
+                            <span class="text-white font-black text-xl">50% OFF</span>
+                            <span class="text-[10px] text-slate-500 uppercase tracking-widest">Mom & Me</span>
+                        </div>
+                    </div>
+                </div>
+
+                 <!-- Post 12: Urgency -->
+                 <div class="glass-card p-8 rounded-[2rem] hover:border-brand-rose/50 group relative overflow-hidden border-brand-rose/20">
+                    <div class="relative z-10">
+                        <span class="text-xs font-bold text-brand-rose bg-brand-rose/10 px-3 py-1 rounded-full mb-4 inline-block animate-pulse">فرصة أخيرة</span>
+                        <h3 class="text-lg font-bold text-white mb-3">ندم الصيف يبدأ اليوم</h3>
+                        <p class="text-sm text-slate-400 leading-relaxed mb-6">
+                            هل مستعدة تندمين لما الأسعار تولع؟ تصفية أمنية الصيفية على وشك الانتهاء. خصومات لـ 71%.
+                        </p>
+                        <div class="flex items-center justify-between border-t border-white/5 pt-4">
+                            <span class="text-brand-rose font-black text-xl">URGENT</span>
+                            <span class="text-[10px] text-slate-500 uppercase tracking-widest">Last Chance</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- PDF Download Button -->
+            <div class="mt-20 reveal-on-scroll">
+                <a href="#" class="group relative block w-full max-w-3xl mx-auto transform transition-all hover:scale-[1.02]">
+                    <!-- Glow Effect -->
+                    <div class="absolute inset-0 bg-gradient-to-r from-brand-blue via-brand-indigo to-brand-gold rounded-[2.5rem] opacity-20 group-hover:opacity-40 blur-2xl transition-opacity duration-500"></div>
+                    
+                    <!-- Card Content -->
+                    <div class="glass-card p-6 rounded-[2.5rem] flex flex-col md:flex-row items-center justify-between border-brand-blue/30 group-hover:border-brand-blue/60 relative z-10 gap-6">
+                        <div class="flex items-center gap-6 px-4 w-full md:w-auto">
+                            <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-navy-800 to-navy-900 flex items-center justify-center border border-white/10 group-hover:border-brand-gold/50 transition-colors duration-300 shadow-xl">
+                                <svg class="w-10 h-10 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                            </div>
+                            <div class="text-right">
+                                <h4 class="text-white font-black text-xl mb-1 group-hover:text-brand-blue transition-colors">تحميل ملف الخطة الكاملة</h4>
+                                <div class="flex items-center gap-3">
+                                    <span class="px-2 py-0.5 rounded bg-white/10 text-[10px] font-bold text-slate-300 uppercase tracking-wider">PDF</span>
+                                    <p class="text-slate-400 text-sm">Ommniah Social Media Plan.pdf</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="w-full md:w-auto">
+                            <button class="w-full md:w-auto bg-brand-blue text-navy-900 px-10 py-5 rounded-2xl font-black flex items-center justify-center gap-3 group-hover:bg-white transition-all shadow-[0_0_20px_rgba(56,189,248,0.2)] group-hover:shadow-[0_0_30px_rgba(255,255,255,0.3)]">
+                                <span>DOWNLOAD PLAN</span>
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                            </button>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-navy-900 border-t border-white/5 pt-32 pb-16 px-6 text-center">
+        <div class="container mx-auto space-y-12">
+            <h5 class="text-2xl font-black text-white italic tracking-tight">Richline Strategic Agency</h5>
+            <p class="text-slate-500 text-lg max-w-2xl mx-auto leading-relaxed">
+                نحن لا نبيع إعلانات، نحن نبني نموًا مستدامًا لعلامتك التجارية.
+            </p>
+            <div class="pt-12 border-t border-white/5">
+                <p class="text-[10px] text-slate-700 font-bold tracking-[0.4em] uppercase">
+                    POWERED BY <span class="text-brand-blue">RICHLINE AGENCY</span> &copy; 2026
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal-on-scroll').forEach((el) => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
